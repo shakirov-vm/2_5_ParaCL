@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <FlexLexer.h>
-ted
+
 int yyFlexLexer::yywrap() {
   return 1;
 }
