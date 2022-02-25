@@ -22,13 +22,16 @@ LETTER  [a-z]|[A-Z]
 UNDERLI "_"
 VAR     ({LETTER}|{UNDERLI})({UNDERLI}|{NUM}|{LETTER})*
 
-
-OP      [\+\-\*\\]
+OP_SUM  [\+\-]
+OP_MUL  [\*\\]
 
 EQUAL   "=="
 GRETEQ  ">="
 LESSEQ  "<="
 LOGIC   {EQUAL}|{GRETEQ}|{LESSEQ}|[\<\>]
+
+OR  "||"
+AND "&&"
 
 ASSIGN [\=]
 
@@ -45,7 +48,10 @@ WHILE {WHILE_}{WS}*{LB}
 %%
 
 {WS}                /* skip blanks and tabs */
-{OP}                { cout << "operator <" << yytext[0] << ">" << endl; return 1; }
+{OR}                { cout << " logic or<" << yytext    << ">" << endl; return 1; }
+{AND}               { cout << " logic an<" << yytext    << ">" << endl; return 1; }
+{OP_SUM}            { cout << "operator <" << yytext[0] << ">" << endl; return 1; }
+{OP_MUL}            { cout << "operator <" << yytext[0] << ">" << endl; return 1; }
 {NUM}               { cout << " number  <" << yytext    << ">" << endl; return 1; }
 {LOGIC}             { cout << " logic   <" << yytext    << ">" << endl; return 1; }
 {ASSIGN}            { cout << " assign   " <<           endl; return 1; }
