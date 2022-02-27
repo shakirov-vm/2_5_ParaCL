@@ -1,0 +1,11 @@
+fst = scnd;
+fst fst =;
+5 = fst;
+fst while (0) fst = 4 = 5;
+fst while (0) {
+	fst = 4 = 5;
+	if ( if (a == b) {abc = 4} ) {
+		a == b <= c;
+		while() {} == if() {}
+	}
+}
